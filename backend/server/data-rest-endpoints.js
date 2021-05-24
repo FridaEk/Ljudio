@@ -92,7 +92,7 @@ module.exports = (app, db) => {
             response.status(403) // forbidden
             response.json({ error: 'not logged in' })
             return;
-        } //INSERT INTO users SET email = ?, password = ?, first_name = ?, last_name = ? `, [email, password, firstName, lastName]
+        }
         let result = await db.query(`
             INSERT INTO playlists SET user_id = ?, name = ? `, [request.params.userId, request.params.name])
         response.json(result.insertId);
