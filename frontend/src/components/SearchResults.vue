@@ -5,11 +5,22 @@
     <br />
     <ul>
       <li
-        @click="setSong(song)"
         v-for="song in this.$store.state.searchList.songs"
         :key="song.videoId"
       >
         {{ song.name }}-{{ song.artist.name }}
+        <v-btn
+          @click="setSong(song)"
+          class="mx-2"
+          fab
+          light
+          small
+          color="blue-grey lighten-4"
+        >
+          <v-icon dark>
+            mdi-play
+          </v-icon>
+        </v-btn>
         <v-btn
           @click="add(song)"
           class="mx-2"

@@ -8,6 +8,7 @@
           @click="selectPlaylist(playlist)"
           v-for="playlist in playlists"
           :key="playlist.id"
+          class="pointer"
         >
           {{ playlist.name }}
           <v-btn
@@ -44,6 +45,7 @@
         dense
         flat
         rounded
+        dark
         solo-inverted
         placeholder="Playlist name"
       >
@@ -163,5 +165,9 @@ export default {
 <style>
 .btn {
   color: white;
+}
+
+.pointer {
+  cursor: pointer;
 }
 </style>

@@ -4,14 +4,20 @@
       <h1>Songs in playlist</h1>
       <br />
       <ul>
-        <li
-          @click="playSong(song)"
-          v-for="song in songs"
-          :key="song.key"
-          class="pointer"
-        >
+        <li v-for="song in songs" :key="song.key">
           <a> {{ song.title }} - {{ song.artist }} </a>
-
+          <v-btn
+            @click="playSong(song)"
+            class="mx-2"
+            fab
+            light
+            small
+            color="blue-grey lighten-4"
+          >
+            <v-icon dark>
+              mdi-play
+            </v-icon>
+          </v-btn>
           <br />
         </li>
       </ul>
@@ -115,8 +121,5 @@ h1 {
 
 li > a {
   color: white;
-}
-.pointer {
-  cursor: pointer;
 }
 </style>
