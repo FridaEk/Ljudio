@@ -3,7 +3,7 @@
     <div>
       <h1>Songs in playlist</h1>
       <br />
-      <ul>
+      <ul v-if="this.$store.state.user.loggedIn">
         <li v-for="song in songs" :key="song.key">
           <a> {{ song.title }} - {{ song.artist }} </a>
           <v-btn
