@@ -18,6 +18,18 @@
               mdi-play
             </v-icon>
           </v-btn>
+          <v-btn
+            @click="remove(song)"
+            class="mx-2"
+            fab
+            light
+            small
+            color="blue-grey lighten-4"
+          >
+            <v-icon dark>
+              mdi-minus
+            </v-icon>
+          </v-btn>
           <br />
         </li>
       </ul>

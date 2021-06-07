@@ -190,7 +190,7 @@ export default new Vuex.Store({
             })
         },
         async deleteSong({ dispatch }, data) {
-            await axios.delete(`http://localhost:3000/api/songs/${data.userId}/${data.id}/${data.key}`)
+            await axios.delete(`http://localhost:3000/api/songs/${data.userId}/${data.id}`)
                 .then(response => {
                     dispatch('getSongs', { data: { userId: data.userId, id: data.id } })
                     return response

@@ -145,15 +145,16 @@ module.exports = (app, db) => {
 
     //delete song
     //TODO: Denna ger error, vet inte varför men den klagar över queryn. Kolla över queryn så borde delete funka. 
-    app.delete("/api/songs/:userId/:id/:key", async(request, response) => {
+    app.delete("/api/songs/:userId/:id", async(request, response) => {
         console.log(request.params.id, request.params.key, request.params.userId)
+        console.log(`DELETE FROM songs WHERE id = ${request.params.id} AND user_id = ${request.params.userId}`);
         if (!request.session.user) {
             response.status(403) // forbidden
             response.json({ error: 'not logged in' })
             return;
         }
         let result = await db.query(
-                `DELETE FROM songs WHERE id = ? AND user_id = ? AND key = ?`, [request.params.id, request.params.userId, request.params.key])
+                `DELETE FROM songs WHERE id = ? AND user_id = ?`, [request.params.id, request.params.userId])
             .catch((error) => { console.log(error) })
         response.json(result)
     })
